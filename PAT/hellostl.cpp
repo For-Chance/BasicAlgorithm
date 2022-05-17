@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-    cout << "hello, code app!";
+    cout << "hello";
     system("pause");
     return 0;
 }
