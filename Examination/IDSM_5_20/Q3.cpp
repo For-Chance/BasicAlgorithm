@@ -4,6 +4,10 @@ using namespace std;
 class Solution
 {
 public:
+    vector<int> maxSwap(int start, int end)
+    {
+        int mid = (start + end) / 2;
+        }
 };
 
 int main()
