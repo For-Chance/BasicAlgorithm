@@ -4,13 +4,27 @@ using namespace std;
 class Solution
 {
 public:
-    void build(unordered_map<int, int> &mapLine, unordered_map<int, vector<int>> &tran)
+    unordered_map<int, int> mapLine;
+    unordered_map<int, vector<int>> tran;
+    unordered_map<int, vector<int>> Lines;
+    vector<vector<int>> e;
+    void build(unordered_map<int, int> &mapLine, unordered_map<int, vector<int>> &tran, unordered_map<int, vector<int>> &Lines)
     {
+        mapLine = mapLine;
+        tran = tran;
+        Lines = Lines;
+        // 建图
+        int n = Lines.size();
+        e = vector<vector<int>>(10000, vector<int>(10000));
+        for (auto it = tran.begin(); it != tran.end(); it++)
+        {
+        }
     }
 
     pair<int, vector<pair<int, int>>> findPath(int source, int dest)
     {
         pair<int, vector<pair<int, int>>> res;
+        // 赋
         return res;
     }
 };
@@ -19,6 +33,7 @@ int main()
 {
     unordered_map<int, int> mapLine;
     unordered_map<int, vector<int>> tran;
+    unordered_map<int, vector<int>> Lines;
     int N;
     cin >> N;
     for (int i = 0; i < N; i++)
@@ -26,13 +41,17 @@ int main()
         int M;
         cin >> M;
         int idx;
+        Lines[i] = {};
         for (int j = 0; j < M; j++)
         {
             cin >> idx;
+            Lines[i].push_back(idx);
             if (mapLine.find(idx) == mapLine.end())
                 mapLine[idx] = i;
             else
             {
+                if (mapLine[idx] == i)
+                    continue;
                 if (tran.find(idx) == tran.end())
                 {
                     tran[idx] = {};
@@ -45,7 +64,7 @@ int main()
         }
     }
     Solution solution;
-    solution.build(mapLine, tran);
+    solution.build(mapLine, tran, Lines);
     int K;
     cin >> K;
     for (int i = 0; i < K; i++)
